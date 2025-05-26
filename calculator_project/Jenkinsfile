@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven-3.6.2'
+        jdk 'JDK-11'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                dir('calculator') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('calculator') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Code Coverage') {
+            steps {
+                dir('calculator') {
+                    sh 'mvn jacoco:report'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('calculator') {
+                    sh 'mvn package'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            dir('calculator') {
+                junit 'target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+    }
+}
