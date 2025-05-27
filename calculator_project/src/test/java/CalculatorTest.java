@@ -13,14 +13,14 @@ public class CalculatorTest {
     public void testsub() {
         Calculator calc = new Calculator();
         int result = calc.sub(8,4);
-        System.out.println("Subtraction result: "+result)
+        System.out.println("Subtraction result: "+result);
         assertEquals(4,result);
     }
     @Test
     public void testmul() {
         Calculator calc = new Calculator();
         int result = calc.mul(2,3)
-        System.println.out("Multiplication result: "+result)
+        System.println.out("Multiplication result: "+result);
         assertEquals(6,result);
 
     }
@@ -28,7 +28,7 @@ public class CalculatorTest {
     public void testdiv() {
         Calculator calc = new Calculator();
         int result = calc.mul(8,4)
-        System.println.out("Division result: "+result)
+        System.println.out("Division result: "+result);
         assertEquals(4,result);
     }
 }
