@@ -19,16 +19,16 @@ public class CalculatorTest {
     @Test
     public void testmul() {
         Calculator calc = new Calculator();
-        int result = calc.mul(2,3)
-        System.println.out("Multiplication result: "+result);
+        int result = calc.mul(2,3);
+        System.out.println("Multiplication result: "+result);
         assertEquals(6,result);
 
     }
     @Test
     public void testdiv() {
         Calculator calc = new Calculator();
-        int result = calc.mul(8,4)
-        System.println.out("Division result: "+result);
-        assertEquals(4,result);
+        int result = calc.div(8,4);
+        System.out.println("Division result: "+result);
+        assertEquals(2,result);
     }
 }
